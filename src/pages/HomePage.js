@@ -1,5 +1,10 @@
 import React from "react";
+import ProduceCard from "../components/Cards/ProduceCard";
 
 export default function HomePage() {
-  return <div>this is the homepage</div>;
+  return (
+    <div>
+      <ProduceCard />
+    </div>
+  );
 }
