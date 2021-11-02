@@ -1,5 +1,7 @@
 .produceContainer {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .produceCard {

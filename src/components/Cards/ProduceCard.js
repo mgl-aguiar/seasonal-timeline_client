@@ -24,7 +24,7 @@ export default function ProduceCard() {
   }, [countryId]);
 
   return (
-    <div className="produceContainer">
+    <div>
       <div className="dropdown">
         <label for="countries">Filter produces:</label>
 
@@ -38,15 +38,17 @@ export default function ProduceCard() {
           <option value={2}>Portugal</option>
         </select>
       </div>
-
-      {produces.map((eachProduce) => {
-        return (
-          <div key={eachProduce.id} className="produceCard">
-            <h3>{eachProduce.name}</h3>
-            <img src={eachProduce.imageUrl} alt={eachProduce.name}></img>
-          </div>
-        );
-      })}
+      <div className="produceContainer">
+        {produces.map((eachProduce) => {
+          return (
+            <div key={eachProduce.id} className="produceCard">
+              <h3>{eachProduce.name}</h3>
+              <img src={eachProduce.imageUrl} alt={eachProduce.name}></img>
+              <p>{eachProduce.seasonality}</p>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 }
