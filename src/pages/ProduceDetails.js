@@ -9,10 +9,26 @@ export default function ProduceDetails() {
   const dispatch = useDispatch();
   const { produceId } = useParams();
 
-  const produceDetails = useSelector(selectProduceDetails);
+  const produce = useSelector(selectProduceDetails);
 
   useEffect(() => {
     dispatch(fetchProduceDetails(produceId));
   }, []);
-  return <div>{produceDetails.name}</div>;
+  return (
+    <div>
+      <h1>{produce.name}</h1>
+      <img
+        src={`${produce.imageUrl}`}
+        alt={`${produce.name}`}
+        style={{ height: "200px" }}
+      ></img>
+      <p>{produce.seasonality}</p>
+      <h3>History:</h3>
+      <p>{produce.history}</p>
+      <h3>Geography:</h3>
+      <p>{produce.geography}</p>
+      <h3>Nutrition:</h3>
+      <p>{produce.nutrition}</p>
+    </div>
+  );
 }
