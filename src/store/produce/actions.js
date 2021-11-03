@@ -28,7 +28,7 @@ export const loadCountryProduces = (countryWithProduces) => {
 
 export function fetchCountryProduces(countryId) {
   return async (dispatch) => {
-    const res = await axios.get(`${apiUrl}/produce/${countryId}`);
+    const res = await axios.get(`${apiUrl}/produce/country/${countryId}`);
     const countryProduces = res.data;
 
     dispatch(loadCountryProduces(countryProduces));
