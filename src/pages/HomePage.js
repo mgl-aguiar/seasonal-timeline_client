@@ -1,10 +1,10 @@
 import React from "react";
-import ProduceCard from "../components/Cards/ProduceCard";
+import TimelineContainer from "../components/Timeline/TimelineContainer";
 
 export default function HomePage() {
   return (
     <div>
-      <ProduceCard />
+      <TimelineContainer />
     </div>
   );
 }

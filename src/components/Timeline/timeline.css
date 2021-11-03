@@ -1,0 +1,40 @@
+.scrollableContainer {
+  overflow-y: scroll;
+  position: relative;
+}
+
+/* FRONT GRID: PRODUCES */
+.produceGrid {
+  padding: 20px;
+  display: grid;
+  width: 400vw;
+  margin-top: 30px;
+  grid-template-columns: repeat(24, 1fr);
+  grid-row-gap: 10px;
+}
+
+.produceGridItem {
+  background-color: grey;
+  color: white;
+  height: 30px;
+}
+
+/* BACK GRID: MONTHS */
+.monthGrid {
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(12, 2fr);
+  width: 400vw;
+  grid-row-gap: 10px;
+  position: absolute;
+  top: 0;
+}
+
+.monthGridItem {
+  text-align: center;
+  border-left: 1px solid grey;
+}
+
+.filterMenu {
+  color: rgb(43, 92, 226);
+}
