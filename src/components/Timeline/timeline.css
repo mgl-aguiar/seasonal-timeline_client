@@ -27,14 +27,16 @@
   width: 400vw;
   grid-row-gap: 10px;
   position: absolute;
+  z-index: -10;
   top: 0;
 }
 
 .monthGridItem {
   text-align: center;
-  border-left: 1px solid grey;
+  border-left: 2px solid rgb(185, 185, 185);
 }
 
 .filterMenu {
-  color: rgb(43, 92, 226);
+  position: relative;
+  z-index: 10;
 }
