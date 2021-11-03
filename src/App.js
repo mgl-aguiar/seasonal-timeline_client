@@ -38,7 +38,7 @@ function App() {
       {isLoading ? <Loading /> : null}
       <Switch>
         <Route exact path="/" component={HomePage} />
-        <Route path="/produce/:id" component={ProduceDetails} />
+        <Route path="/produce/:produceId" component={ProduceDetails} />
         <Route path="/signup" component={SignUp} />
         <Route path="/login" component={Login} />
       </Switch>

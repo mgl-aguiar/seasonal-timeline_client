@@ -1,11 +1,11 @@
 const initialState = {
   allProduces: [],
+  produceDetails: [],
 };
 
 export default function produceReducer(state = initialState, action) {
   switch (action.type) {
     case "produces/loadAllProduces": {
-      console.log("all produces: ", action.payload);
       return {
         ...state,
         allProduces: [...action.payload],
@@ -13,10 +13,16 @@ export default function produceReducer(state = initialState, action) {
     }
 
     case "produces/loadCountryProduces": {
-      console.log("from reducer: ", action.payload);
       return {
         ...state,
         allProduces: [...action.payload.produces],
+      };
+    }
+
+    case "produces/loadProduceDetails": {
+      return {
+        ...state,
+        produceDetails: action.payload,
       };
     }
 

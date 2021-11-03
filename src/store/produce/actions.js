@@ -34,3 +34,20 @@ export function fetchCountryProduces(countryId) {
     dispatch(loadCountryProduces(countryProduces));
   };
 }
+
+///////////////////////////////////////////////////////
+export const loadProduceDetails = (produceDetails) => {
+  return {
+    type: "produces/loadProduceDetails",
+    payload: produceDetails,
+  };
+};
+
+export function fetchProduceDetails(produceId) {
+  return async (dispatch) => {
+    const res = await axios.get(`${apiUrl}/produce/details/${produceId}`);
+    const produceDetails = res.data;
+
+    dispatch(loadProduceDetails(produceDetails));
+  };
+}
