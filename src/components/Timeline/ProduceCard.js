@@ -5,12 +5,13 @@ import {
   fetchAllProduces,
   fetchCountryProduces,
 } from "../../store/produce/actions";
+import { Link } from "react-router-dom";
 
 import "./timeline.css";
 
 export default function ProduceCard() {
   const dispatch = useDispatch();
-  const [countryId, setCountryId] = useState(2);
+  const [countryId, setCountryId] = useState(0);
 
   const produces = useSelector(selectAllProduces);
 
@@ -55,8 +56,11 @@ export default function ProduceCard() {
                   gridRowEnd: `${index + 1}`,
                 }}
               >
-                {eachProduce.name}
+                <Link to={`/produce/${eachProduce.id}`}>
+                  {eachProduce.name}
+                </Link>
               </div>
+
               {yearOverlap ? (
                 <div
                   className="produceGridItem"
@@ -67,7 +71,9 @@ export default function ProduceCard() {
                     gridRowEnd: `${index + 1}`,
                   }}
                 >
-                  {eachProduce.name}
+                  <Link to={`/produce/${eachProduce.id}`}>
+                    {eachProduce.name}
+                  </Link>
                 </div>
               ) : null}
             </>
