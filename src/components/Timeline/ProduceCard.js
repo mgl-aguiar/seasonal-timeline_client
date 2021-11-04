@@ -27,7 +27,6 @@ export default function ProduceCard() {
     <div>
       <div className="filterMenu">
         <label for="countries">Filter produces:</label>
-
         <select
           name="countries"
           id="countries"
@@ -56,6 +55,32 @@ export default function ProduceCard() {
                   gridRowEnd: `${index + 1}`,
                 }}
               >
+                <svg width="100%" height="100%">
+                  <line
+                    x1="0"
+                    y1="50%"
+                    x2="100%"
+                    y2="50%"
+                    stroke="grey"
+                    stroke-width="0.5"
+                  />
+                  <defs>
+                    <clipPath id="circleView">
+                      <circle cx="25%" cy="50%" r="30px" fill="grey" />
+                    </clipPath>
+                  </defs>
+                  <image
+                    alt={eachProduce.name}
+                    xlinkHref={eachProduce.imageUrl}
+                    style={{
+                      clipPath: "url(#circleView)",
+                    }}
+                  />
+                  {yearOverlap ? null : (
+                    <circle cx="0" cy="50%" r="3px" fill="grey" />
+                  )}
+                  <circle cx="100%" cy="50%" r="3px" fill="grey" />
+                </svg>
                 <Link to={`/produce/${eachProduce.id}`}>
                   {eachProduce.name}
                 </Link>
@@ -71,6 +96,19 @@ export default function ProduceCard() {
                     gridRowEnd: `${index + 1}`,
                   }}
                 >
+                  <svg width="100%" height="100%">
+                    <line
+                      x1="0"
+                      y1="50%"
+                      x2="100%"
+                      y2="50%"
+                      stroke="grey"
+                      stroke-width="0.5"
+                    />
+                    <img src={eachProduce.imageUrl} alt={eachProduce.name} />
+                    <circle cx="50%" cy="50%" r="30px" fill="grey" />
+                    <circle cx="3px" cy="50%" r="3px" fill="grey" />
+                  </svg>
                   <Link to={`/produce/${eachProduce.id}`}>
                     {eachProduce.name}
                   </Link>

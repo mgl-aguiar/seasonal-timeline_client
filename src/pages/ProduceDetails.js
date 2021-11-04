@@ -10,10 +10,12 @@ export default function ProduceDetails() {
   const { produceId } = useParams();
 
   const produce = useSelector(selectProduceDetails);
+  const localProducers = produce.users;
 
   useEffect(() => {
     dispatch(fetchProduceDetails(produceId));
   }, []);
+
   return (
     <div>
       <h1>{produce.name}</h1>
@@ -29,6 +31,19 @@ export default function ProduceDetails() {
       <p>{produce.geography}</p>
       <h3>Nutrition:</h3>
       <p>{produce.nutrition}</p>
+      <h3>Local Producers: </h3>
+
+      {localProducers.length !== 0 ? (
+        localProducers.map((eachProducer) => {
+          return (
+            <a href={`/producer-profile/:${eachProducer.id}`}>
+              {eachProducer.name}
+            </a>
+          );
+        })
+      ) : (
+        <p>No local producers yet</p>
+      )}
     </div>
   );
 }

@@ -7,21 +7,22 @@
 .produceGrid {
   padding: 20px;
   display: grid;
-  width: 400vw;
+  width: 300vw;
   margin-top: 30px;
   grid-template-columns: repeat(24, 1fr);
   grid-row-gap: 10px;
 }
 
 .produceGridItem {
-  background-color: rgb(184, 184, 184);
+  /* background-color: rgb(184, 184, 184); */
+  /* border: 1px solid grey; */
   color: white;
-  height: 30px;
+  height: 60px;
   text-align: center;
 }
 
 .produceGridItem > a {
-  color: white;
+  color: grey;
   text-decoration: none;
 }
 
@@ -30,7 +31,7 @@
   padding: 20px;
   display: grid;
   grid-template-columns: repeat(12, 2fr);
-  width: 400vw;
+  width: 300vw;
   height: 100%;
   grid-row-gap: 10px;
   position: absolute;
@@ -49,10 +50,12 @@
 .monthGridItem {
   text-align: center;
   color: rgba(0, 0, 0, 0.3);
+  margin-bottom: 20px;
   font-size: 1.2rem;
-  border-left: 2px solid rgb(255, 255, 255, 0.8);
+  border-left: 1px solid rgb(255, 255, 255, 0.8);
 }
 
+/* DROPDOWN MENU */
 .filterMenu {
   position: fixed;
   width: 10vw;
