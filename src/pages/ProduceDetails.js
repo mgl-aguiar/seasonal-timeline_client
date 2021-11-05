@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router";
 import { fetchProduceDetails } from "../store/produce/actions";
 import { selectProduceDetails } from "../store/produce/selectors";
+import Loading from "../components/Loading";
 
 export default function ProduceDetails() {
   const dispatch = useDispatch();
@@ -31,16 +32,25 @@ export default function ProduceDetails() {
       <p>{produce.geography}</p>
       <h3>Nutrition:</h3>
       <p>{produce.nutrition}</p>
-      <h3> Local producers:</h3>
+      <h3>Local producers:</h3>
 
-      {localProducer.length !== 0 ? (
-        localProducer.map((eachProducer) => {
-          return (
-            <a href={`/producer/:${eachProducer.id}`}>{eachProducer.name}</a>
-          );
-        })
+      {!localProducer ? (
+        <Loading />
       ) : (
-        <p>No local producers yet.</p>
+        <div>
+          {" "}
+          {localProducer.length !== 0 ? (
+            localProducer.map((eachProducer) => {
+              return (
+                <a href={`/producer/:${eachProducer.id}`}>
+                  {eachProducer.name}
+                </a>
+              );
+            })
+          ) : (
+            <p>No local producers yet</p>
+          )}
+        </div>
       )}
     </div>
   );
