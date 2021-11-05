@@ -14,14 +14,14 @@
 }
 
 .produceGridItem {
-  background-color: rgb(184, 184, 184);
-  color: white;
+  background-color: rgba(255, 255, 255, 0.7);
   height: 30px;
   text-align: center;
 }
 
 .produceGridItem > a {
-  color: white;
+  color: rgb(173, 173, 173);
+  font-weight: bold;
   text-decoration: none;
 }
 
