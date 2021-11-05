@@ -42,9 +42,7 @@ export default function ProduceDetails() {
           {localProducer.length !== 0 ? (
             localProducer.map((eachProducer) => {
               return (
-                <a href={`/producer/:${eachProducer.id}`}>
-                  {eachProducer.name}
-                </a>
+                <a href={`/producer/${eachProducer.id}`}>{eachProducer.name}</a>
               );
             })
           ) : (
