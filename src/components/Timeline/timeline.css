@@ -14,8 +14,7 @@
 }
 
 .produceGridItem {
-  /* background-color: rgb(184, 184, 184); */
-  /* border: 1px solid grey; */
+  border: 1px solid black;
   color: white;
   height: 60px;
   text-align: center;
