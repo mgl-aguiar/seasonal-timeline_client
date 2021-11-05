@@ -51,3 +51,20 @@ export function fetchProduceDetails(produceId) {
     dispatch(loadProduceDetails(produceDetails));
   };
 }
+
+///////////////////////////////////////////////////////
+export const loadProducerProfile = (producerProfile) => {
+  return {
+    type: "produces/loadProducerProfile",
+    payload: producerProfile,
+  };
+};
+
+export function fetchProducerProfile(producerId) {
+  return async (dispatch) => {
+    const res = await axios.get(`${apiUrl}/producer/${producerId}`);
+    const produceDetails = res.data;
+
+    dispatch(loadProducerProfile(produceDetails));
+  };
+}

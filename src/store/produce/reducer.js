@@ -1,6 +1,7 @@
 const initialState = {
   allProduces: [],
   produceDetails: [],
+  producerProfile: [],
 };
 
 export default function produceReducer(state = initialState, action) {
@@ -23,6 +24,13 @@ export default function produceReducer(state = initialState, action) {
       return {
         ...state,
         produceDetails: action.payload,
+      };
+    }
+
+    case "produces/loadProducerProfile": {
+      return {
+        ...state,
+        producerProfile: action.payload,
       };
     }
 

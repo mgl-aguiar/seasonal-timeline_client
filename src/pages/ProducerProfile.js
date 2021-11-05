@@ -1,23 +1,48 @@
 import React from "react";
-import { useSelector } from "react-redux";
-import { selectUser } from "../store/user/selectors";
+import { useSelector, useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { useParams } from "react-router";
+import { selectProducerProfile } from "../store/produce/selectors";
+import { fetchProducerProfile } from "../store/produce/actions";
+
+import Loading from "../components/Loading";
 
 export default function ProducerProfile() {
-  const user = useSelector(selectUser);
+  const dispatch = useDispatch();
+  const { producerId } = useParams();
+
+  const producerProfile = useSelector(selectProducerProfile);
+  const produces = producerProfile.produces;
+
+  useEffect(() => {
+    dispatch(fetchProducerProfile(producerId));
+  }, []);
 
   return (
-    <div className="producerProfileGrid">
-      <h1>{user.name}</h1>
-      <img src={user.profileImg} alt={user.name}></img>
+    <div>
+      <h1>{producerProfile.name}</h1>
+      <img src={producerProfile.profileImg} alt={producerProfile.name}></img>
       <h3>Description</h3>
-      <p>{user.description}</p>
+      <p>{producerProfile.description}</p>
       <h3>Contact</h3>
-      <p>{user.website}</p>
-      <p>{user.email}</p>
-      <p>{user.phone}</p>
+      <p>{producerProfile.website}</p>
+      <p>{producerProfile.email}</p>
+      <p>{producerProfile.phone}</p>
       <h3>Locations</h3>
-      <p>{user.location}</p>
-      <h3>Produces</h3>
+      <p>{producerProfile.location}</p>
+      <h3>Available produces</h3>
+
+      {!produces ? (
+        <Loading />
+      ) : (
+        <div>
+          {produces.map((eachProduce) => {
+            return (
+              <a href={`/produce/${eachProduce.id}`}>{eachProduce.name}</a>
+            );
+          })}
+        </div>
+      )}
     </div>
   );
 }

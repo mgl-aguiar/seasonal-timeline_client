@@ -5,3 +5,7 @@ export const selectAllProduces = (reduxState) => {
 export const selectProduceDetails = (reduxState) => {
   return reduxState.produce.produceDetails;
 };
+
+export const selectProducerProfile = (reduxState) => {
+  return reduxState.produce.producerProfile;
+};

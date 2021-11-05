@@ -12,7 +12,6 @@ export default function ProduceDetails() {
 
   const produce = useSelector(selectProduceDetails);
   const localProducer = produce.users;
-  console.log(localProducer);
 
   useEffect(() => {
     dispatch(fetchProduceDetails(produceId));

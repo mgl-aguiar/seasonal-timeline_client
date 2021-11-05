@@ -12,7 +12,7 @@ export default function LoggedIn() {
   return (
     <>
       <NavbarItem
-        path={`/producer-profile/${user.id}`}
+        path={`/producer/${user.id}`}
         linkText="My Producer Profile"
       />
 
