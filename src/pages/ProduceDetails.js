@@ -6,6 +6,8 @@ import { fetchProduceDetails } from "../store/produce/actions";
 import { selectProduceDetails } from "../store/produce/selectors";
 import Loading from "../components/Loading";
 
+import "./ProduceDetails.css";
+
 export default function ProduceDetails() {
   const dispatch = useDispatch();
   const { produceId } = useParams();
@@ -17,38 +19,46 @@ export default function ProduceDetails() {
     dispatch(fetchProduceDetails(produceId));
   }, []);
   return (
-    <div>
-      <h1>{produce.name}</h1>
+    <div className="gridContainer">
       <img
         src={`${produce.imageUrl}`}
         alt={`${produce.name}`}
-        style={{ height: "200px" }}
+        className="gridImage"
       ></img>
-      <p>{produce.seasonality}</p>
-      <h3>History:</h3>
-      <p>{produce.history}</p>
-      <h3>Geography:</h3>
-      <p>{produce.geography}</p>
-      <h3>Nutrition:</h3>
-      <p>{produce.nutrition}</p>
-      <h3>Local producers:</h3>
+      <div className="gridHeader">
+        <h1>{produce.name}</h1>
+        <p>{produce.seasonality}</p>
+      </div>
+      <div className="gridSide">
+        <h3>Local producers:</h3>
 
-      {!localProducer ? (
-        <Loading />
-      ) : (
-        <div>
-          {" "}
-          {localProducer.length !== 0 ? (
-            localProducer.map((eachProducer) => {
-              return (
-                <a href={`/producer/${eachProducer.id}`}>{eachProducer.name}</a>
-              );
-            })
-          ) : (
-            <p>No local producers yet</p>
-          )}
-        </div>
-      )}
+        {!localProducer ? (
+          <Loading />
+        ) : (
+          <div>
+            {" "}
+            {localProducer.length !== 0 ? (
+              localProducer.map((eachProducer) => {
+                return (
+                  <a href={`/producer/${eachProducer.id}`}>
+                    {eachProducer.name}
+                  </a>
+                );
+              })
+            ) : (
+              <p>No local producers yet</p>
+            )}
+          </div>
+        )}
+      </div>
+      <div className="gridMain">
+        <h3>History:</h3>
+        <p>{produce.history}</p>
+        <h3>Geography:</h3>
+        <p>{produce.geography}</p>
+        <h3>Nutrition:</h3>
+        <p>{produce.nutrition}</p>
+      </div>
     </div>
   );
 }
