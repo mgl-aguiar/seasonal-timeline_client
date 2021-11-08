@@ -3,10 +3,13 @@ import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 import { signUp } from "../../store/user/actions";
+import { fetchAllProduces } from "../../store/produce/actions";
 import { selectToken } from "../../store/user/selectors";
+import { selectAllProduces } from "../../store/produce/selectors";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, Link } from "react-router-dom";
 import { Col } from "react-bootstrap";
+import Select from "react-select";
 
 export default function SignUp() {
   const [name, setName] = useState("");
@@ -17,14 +20,22 @@ export default function SignUp() {
   const [phone, setPhone] = useState("");
   const [location, setLocation] = useState("");
   const [countryId, setCountryId] = useState("");
-
   const [password, setPassword] = useState("");
 
   const dispatch = useDispatch();
   const token = useSelector(selectToken);
   const history = useHistory();
+  const allProduces = useSelector(selectAllProduces);
+
+  const producesToSelect = allProduces.map((eachProduce) => {
+    return { value: eachProduce.id, label: eachProduce.name };
+  });
+
+  const [produces, setProduces] = useState([]);
+  console.log(countryId);
 
   useEffect(() => {
+    dispatch(fetchAllProduces());
     if (token !== null) {
       history.push("/");
     }
@@ -43,7 +54,8 @@ export default function SignUp() {
         profileImg,
         phone,
         location,
-        countryId
+        countryId,
+        produces
       )
     );
 
@@ -56,6 +68,7 @@ export default function SignUp() {
     setPhone("");
     setLocation("");
     setCountryId(null);
+    setProduces([]);
   }
 
   return (
@@ -64,7 +77,7 @@ export default function SignUp() {
         <h1 className="mt-5 mb-5">Signup for a producer profile</h1>
 
         <Form.Group controlId="formBasicName">
-          <Form.Label>Name *</Form.Label>
+          <Form.Label>Name</Form.Label>
           <Form.Control
             value={name}
             onChange={(event) => setName(event.target.value)}
@@ -126,17 +139,32 @@ export default function SignUp() {
 
         <Form.Group controlId="formBasicCountryId">
           <Form.Label>Country</Form.Label>
-          <Form.Control
-            value={countryId}
+          <br></br>
+          <select
+            name="countries"
+            id="countries"
             onChange={(event) => setCountryId(parseInt(event.target.value))}
-            type="number"
-            placeholder="In which country is your production located?"
-            required
+          >
+            <option value={null}>Select your country...</option>
+            <option value={1}>Netherlands</option>
+            <option value={2}>Portugal</option>
+          </select>
+        </Form.Group>
+
+        <Form.Group controlId="formBasicCountryId">
+          <Form.Label>Produces</Form.Label>
+          <Select
+            isMulti
+            name="colors"
+            onChange={(event) => setProduces()}
+            options={producesToSelect}
+            className="basic-multi-select"
+            classNamePrefix="select"
           />
         </Form.Group>
 
         <Form.Group controlId="formBasicEmail">
-          <Form.Label>Email address *</Form.Label>
+          <Form.Label>Email address</Form.Label>
           <Form.Control
             value={email}
             onChange={(event) => setEmail(event.target.value)}
@@ -150,7 +178,7 @@ export default function SignUp() {
         </Form.Group>
 
         <Form.Group controlId="formBasicPassword">
-          <Form.Label>Password *</Form.Label>
+          <Form.Label>Password</Form.Label>
           <Form.Control
             value={password}
             onChange={(event) => setPassword(event.target.value)}
