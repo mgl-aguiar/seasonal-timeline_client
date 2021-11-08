@@ -35,20 +35,22 @@ export default function ProduceDetails() {
         {!localProducer ? (
           <Loading />
         ) : (
-          <div>
+          <ul>
             {" "}
             {localProducer.length !== 0 ? (
               localProducer.map((eachProducer) => {
                 return (
-                  <a href={`/producer/${eachProducer.id}`}>
-                    {eachProducer.name}
-                  </a>
+                  <li>
+                    <a href={`/producer/${eachProducer.id}`}>
+                      {eachProducer.name}
+                    </a>
+                  </li>
                 );
               })
             ) : (
               <p>No local producers yet</p>
             )}
-          </div>
+          </ul>
         )}
       </div>
       <div className="gridMain">
