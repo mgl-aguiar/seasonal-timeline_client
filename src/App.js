@@ -10,6 +10,7 @@ import Login from "./pages/Login";
 import HomePage from "./pages/HomePage";
 import ProduceDetails from "./pages/ProduceDetails";
 import ProducerProfile from "./pages/ProducerProfile";
+import EditProfile from "./pages/EditProfile";
 
 import { useDispatch, useSelector } from "react-redux";
 import { selectAppLoading } from "./store/appState/selectors";
@@ -37,6 +38,7 @@ function App() {
         <Route exact path="/" component={HomePage} />
         <Route path="/produce/:produceId" component={ProduceDetails} />
         <Route path="/producer/:producerId" component={ProducerProfile} />
+        <Route path="/edit-profile/:id" component={EditProfile} />
         <Route path="/signup" component={SignUp} />
         <Route path="/login" component={Login} />
       </Switch>
