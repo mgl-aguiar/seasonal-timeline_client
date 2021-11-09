@@ -35,7 +35,8 @@ export const signUp = (
   profileImg,
   phone,
   location,
-  countryId
+  countryId,
+  produceIdArray
 ) => {
   return async (dispatch, getState) => {
     dispatch(appLoading());
@@ -50,6 +51,7 @@ export const signUp = (
         phone,
         location,
         countryId,
+        produceIdArray,
       });
 
       dispatch(loginSuccess(response.data));

@@ -31,8 +31,13 @@ export default function SignUp() {
     return { value: eachProduce.id, label: eachProduce.name };
   });
 
-  const [produces, setProduces] = useState([]);
-  console.log(countryId);
+  const [selectedProduces, setSelectedProduces] = useState([]);
+
+  const produceIdArray = selectedProduces.map((eachProduce) => {
+    return eachProduce.value;
+  });
+
+  console.log("produce id array: ", produceIdArray);
 
   useEffect(() => {
     dispatch(fetchAllProduces());
@@ -55,7 +60,7 @@ export default function SignUp() {
         phone,
         location,
         countryId,
-        produces
+        produceIdArray
       )
     );
 
@@ -68,7 +73,7 @@ export default function SignUp() {
     setPhone("");
     setLocation("");
     setCountryId(null);
-    setProduces([]);
+    setSelectedProduces([]);
   }
 
   return (
@@ -156,7 +161,9 @@ export default function SignUp() {
           <Select
             isMulti
             name="colors"
-            onChange={(event) => setProduces()}
+            onChange={(selectedProduces) =>
+              setSelectedProduces(selectedProduces)
+            }
             options={producesToSelect}
             className="basic-multi-select"
             classNamePrefix="select"
