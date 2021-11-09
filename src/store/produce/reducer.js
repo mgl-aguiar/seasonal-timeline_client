@@ -34,6 +34,13 @@ export default function produceReducer(state = initialState, action) {
       };
     }
 
+    case "produces/loadUpdatedProfile": {
+      return {
+        ...state,
+        producerProfile: action.payload,
+      };
+    }
+
     default: {
       return state;
     }

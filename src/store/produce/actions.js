@@ -1,5 +1,7 @@
 import { apiUrl } from "../../config/constants";
 import axios from "axios";
+import { selectUser } from "../user/selectors";
+import { setMessage, showMessageWithTimeout } from "../appState/actions";
 
 ///////////////////////////////////////////////////////
 export const loadAllProduces = (produces) => {
@@ -66,5 +68,49 @@ export function fetchProducerProfile(producerId) {
     const produceDetails = res.data;
 
     dispatch(loadProducerProfile(produceDetails));
+  };
+}
+
+///////////////////////////////////////////////////////
+export const loadUpdatedProfile = (updatedProfile) => {
+  return {
+    type: "produces/loadUpdatedProfile",
+    payload: updatedProfile,
+  };
+};
+
+export function editProducerProfile(
+  name,
+  description,
+  website,
+  phone,
+  profileImg,
+  location
+) {
+  return async (dispatch, getState) => {
+    const user = selectUser(getState());
+
+    try {
+      const res = await axios.patch(`${apiUrl}/producer/edit/${user.id}`, {
+        name,
+        description,
+        website,
+        phone,
+        profileImg,
+        location,
+      });
+
+      dispatch(loadUpdatedProfile(res.data.producerProfile));
+      dispatch(
+        showMessageWithTimeout(
+          "success",
+          false,
+          "Your profile was updated!",
+          3000
+        )
+      );
+    } catch {
+      dispatch(setMessage("danger", true, "Could not update profile"));
+    }
   };
 }

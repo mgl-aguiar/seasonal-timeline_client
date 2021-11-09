@@ -1,9 +1,11 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { selectUser } from "../store/user/selectors";
+import { editProducerProfile } from "../store/produce/actions";
 
 export default function EditProfile() {
   const user = useSelector(selectUser);
+  const dispatch = useDispatch();
 
   const [name, setName] = useState(user.name);
   const [description, setDescription] = useState(user.description);
@@ -12,10 +14,24 @@ export default function EditProfile() {
   const [profileImg, setProfileImg] = useState(user.profileImg);
   const [location, setLocation] = useState(user.location);
 
+  const submitChanges = (event) => {
+    event.preventDefault();
+    dispatch(
+      editProducerProfile(
+        name,
+        description,
+        website,
+        phone,
+        profileImg,
+        location
+      )
+    );
+  };
+
   return (
     <div>
       <h1>Edit your producer profile</h1>
-      <form onSubmit={null} className="editProfileForm">
+      <form onSubmit={submitChanges} className="editProfileForm">
         <label style={{ marginBottom: "20px" }}>
           Name:
           <input
