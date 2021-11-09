@@ -4,6 +4,9 @@ import { useEffect } from "react";
 import { useParams } from "react-router";
 import { selectProducerProfile } from "../store/produce/selectors";
 import { fetchProducerProfile } from "../store/produce/actions";
+import { selectUser } from "../store/user/selectors";
+import { Link } from "react-router-dom";
+
 import "./ProducerProfile.css";
 
 import Loading from "../components/Loading";
@@ -14,6 +17,8 @@ export default function ProducerProfile() {
 
   const producerProfile = useSelector(selectProducerProfile);
   const produces = producerProfile.produces;
+
+  const { id, token, email } = useSelector(selectUser);
 
   useEffect(() => {
     dispatch(fetchProducerProfile(producerId));
@@ -57,6 +62,11 @@ export default function ProducerProfile() {
           </ul>
         )}
       </div>
+      {token && email === producerProfile.email ? (
+        <Link to={`/edit-profile/${id}`}>
+          <button>Edit profile</button>
+        </Link>
+      ) : null}
     </div>
   );
 }
