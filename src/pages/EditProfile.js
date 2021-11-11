@@ -1,7 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { selectUser } from "../store/user/selectors";
-import { editProducerProfile } from "../store/produce/actions";
+import { selectAllProduces } from "../store/produce/selectors";
+import {
+  editProducerProfile,
+  fetchAllProduces,
+} from "../store/produce/actions";
+import Select from "react-select";
+import "./EditProfile.css";
 
 export default function EditProfile() {
   const user = useSelector(selectUser);
@@ -14,6 +20,18 @@ export default function EditProfile() {
   const [profileImg, setProfileImg] = useState(user.profileImg);
   const [location, setLocation] = useState(user.location);
 
+  const allProduces = useSelector(selectAllProduces);
+
+  const producesToSelect = allProduces.map((eachProduce) => {
+    return { value: eachProduce.id, label: eachProduce.name };
+  });
+
+  const [selectedProduces, setSelectedProduces] = useState([]);
+
+  const produceIdArray = selectedProduces.map((eachProduce) => {
+    return eachProduce.value;
+  });
+
   const submitChanges = (event) => {
     event.preventDefault();
     dispatch(
@@ -23,16 +41,21 @@ export default function EditProfile() {
         website,
         phone,
         profileImg,
-        location
+        location,
+        produceIdArray
       )
     );
   };
 
+  useEffect(() => {
+    dispatch(fetchAllProduces());
+  }, []);
+
   return (
     <div>
       <h1>Edit your producer profile</h1>
-      <form onSubmit={submitChanges} className="editProfileForm">
-        <label style={{ marginBottom: "20px" }}>
+      <form onSubmit={submitChanges} className="form">
+        <label>
           Name:
           <input
             type="text"
@@ -41,7 +64,7 @@ export default function EditProfile() {
             onChange={(input) => setName(input.target.value)}
           />
         </label>
-        <label style={{ marginBottom: "20px" }}>
+        <label>
           Description:
           <input
             type="text"
@@ -51,7 +74,7 @@ export default function EditProfile() {
             style={{ width: "100%" }}
           />
         </label>
-        <label style={{ marginBottom: "20px" }}>
+        <label>
           Website:
           <input
             type="text"
@@ -61,7 +84,7 @@ export default function EditProfile() {
             style={{ marginLeft: "20px" }}
           />
         </label>
-        <label style={{ marginBottom: "20px" }}>
+        <label>
           Phone:
           <input
             type="text"
@@ -72,7 +95,7 @@ export default function EditProfile() {
           ></input>
         </label>
 
-        <label style={{ marginBottom: "20px" }}>
+        <label>
           Location:
           <input
             type="text"
@@ -83,7 +106,7 @@ export default function EditProfile() {
           ></input>
         </label>
 
-        <label style={{ marginBottom: "20px" }}>
+        <label>
           Profile Image:
           <input
             type="text"
@@ -93,6 +116,15 @@ export default function EditProfile() {
             style={{ marginLeft: "20px" }}
           ></input>
         </label>
+
+        <Select
+          isMulti
+          name="colors"
+          onChange={(selectedProduces) => setSelectedProduces(selectedProduces)}
+          options={producesToSelect}
+          className="basic-multi-select"
+          classNamePrefix="select"
+        />
 
         <input
           type="submit"

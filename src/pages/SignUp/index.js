@@ -37,8 +37,6 @@ export default function SignUp() {
     return eachProduce.value;
   });
 
-  console.log("produce id array: ", produceIdArray);
-
   useEffect(() => {
     dispatch(fetchAllProduces());
     if (token !== null) {
