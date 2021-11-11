@@ -3,7 +3,10 @@ import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router";
 import { fetchProduceDetails } from "../store/produce/actions";
-import { selectProduceDetails } from "../store/produce/selectors";
+import {
+  selectProduceDetails,
+  selectFilterState,
+} from "../store/produce/selectors";
 import Loading from "../components/Loading";
 
 import "./ProduceDetails.css";
@@ -11,6 +14,7 @@ import "./ProduceDetails.css";
 export default function ProduceDetails() {
   const dispatch = useDispatch();
   const { produceId } = useParams();
+  const countryId = useSelector(selectFilterState);
 
   const produce = useSelector(selectProduceDetails);
   const localProducer = produce.users;

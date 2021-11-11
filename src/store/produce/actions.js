@@ -114,3 +114,11 @@ export function editProducerProfile(
     }
   };
 }
+
+///////////////////////////////////////////////////////
+export const updateFilter = (countryId) => {
+  return {
+    type: "produces/loadCountryId",
+    payload: countryId,
+  };
+};

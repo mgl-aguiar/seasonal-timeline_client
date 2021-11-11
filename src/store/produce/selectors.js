@@ -9,3 +9,7 @@ export const selectProduceDetails = (reduxState) => {
 export const selectProducerProfile = (reduxState) => {
   return reduxState.produce.producerProfile;
 };
+
+export const selectFilterState = (reduxState) => {
+  return reduxState.produce.filterState;
+};

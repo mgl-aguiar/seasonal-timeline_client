@@ -2,6 +2,7 @@ const initialState = {
   allProduces: [],
   produceDetails: [],
   producerProfile: [],
+  filterState: null,
 };
 
 export default function produceReducer(state = initialState, action) {
@@ -38,6 +39,13 @@ export default function produceReducer(state = initialState, action) {
       return {
         ...state,
         producerProfile: action.payload,
+      };
+    }
+
+    case "produces/loadCountryId": {
+      return {
+        ...state,
+        filterState: action.payload,
       };
     }
 
