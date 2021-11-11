@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import ProduceCard from "./ProduceCard";
+import Produces from "./Produces";
 import "./timeline.css";
 
 import { selectAllProduces } from "../../store/produce/selectors";
@@ -25,7 +25,7 @@ export default function TimelineContainer() {
 
   return (
     <div className="scrollableContainer">
-      <ProduceCard />
+      <Produces />
       <div className="monthGrid">
         {months.map((eachMonth, index) => {
           return (
