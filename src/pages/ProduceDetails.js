@@ -22,6 +22,7 @@ export default function ProduceDetails() {
   useEffect(() => {
     dispatch(fetchProduceDetails(produceId));
   }, []);
+
   return (
     <div className="gridContainer">
       <img

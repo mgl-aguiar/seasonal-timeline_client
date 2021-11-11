@@ -27,11 +27,12 @@ export default function TimelineContainer() {
     <div className="scrollableContainer">
       <ProduceCard />
       <div className="monthGrid">
-        {months.map((eachMonth) => {
+        {months.map((eachMonth, index) => {
           return (
             <div
+              key={index}
               className="monthGridItem"
-              style={{ height: `${produces.length * 40 + 30}px` }}
+              style={{ height: `${produces.length * 70 + 30}px` }}
             >
               {eachMonth}
             </div>
