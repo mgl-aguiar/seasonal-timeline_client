@@ -17,7 +17,12 @@ export default function ProduceDetails() {
   const countryId = useSelector(selectFilterState);
 
   const produce = useSelector(selectProduceDetails);
-  const localProducer = produce.users;
+
+  const allProducers = produce.users;
+
+  const localProducers = allProducers?.filter(
+    (eachProducer) => eachProducer.countryId === countryId
+  );
 
   useEffect(() => {
     dispatch(fetchProduceDetails(produceId));
@@ -37,21 +42,23 @@ export default function ProduceDetails() {
       <div className="gridSide">
         <h3>Local producers:</h3>
 
-        {!localProducer ? (
+        {!localProducers ? (
           <Loading />
         ) : (
           <ul>
             {" "}
-            {localProducer.length !== 0 ? (
-              localProducer.map((eachProducer) => {
+            {localProducers.length !== 0 ? (
+              localProducers.map((eachProducer) => {
                 return (
-                  <li>
+                  <li key={eachProducer.id}>
                     <a href={`/producer/${eachProducer.id}`}>
                       {eachProducer.name}
                     </a>
                   </li>
                 );
               })
+            ) : countryId === 0 ? (
+              <p>Select a country to find local producers</p>
             ) : (
               <p>No local producers yet</p>
             )}
