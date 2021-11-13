@@ -5,10 +5,10 @@
 
 /* FRONT GRID: PRODUCES */
 .produceGrid {
-  padding: 20px;
+  padding: 20px 0;
   display: grid;
   width: 300vw;
-  margin-top: 30px;
+  margin: 30px 0;
   grid-template-columns: repeat(24, 1fr);
   grid-row-gap: 10px;
 }
@@ -16,7 +16,7 @@
 .produceGridItem {
   /* background-color: rgba(255, 255, 255, 0.6); */
   color: white;
-  height: 60px;
+  height: 80px;
   text-align: center;
 }
 
@@ -27,7 +27,7 @@
 
 /* BACK GRID: MONTHS */
 .monthGrid {
-  padding: 20px;
+  padding: 20px 0px;
   display: grid;
   grid-template-columns: repeat(12, 2fr);
   width: 300vw;
@@ -49,9 +49,10 @@
 .monthGridItem {
   text-align: center;
   color: rgba(0, 0, 0, 0.3);
-  margin-bottom: 20px;
+  /* margin-bottom: 30px; */
+  height: 100%;
   font-size: 1.2rem;
-  border-left: 1px solid rgb(255, 255, 255, 0.8);
+  border-left: 1.5px solid rgb(255, 255, 255, 0.8);
 }
 
 /* DROPDOWN MENU */

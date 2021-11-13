@@ -32,9 +32,9 @@ export default function TimelineContainer() {
             <div
               key={index}
               className="monthGridItem"
-              style={{ height: `${produces.length * 70 + 30}px` }}
+              style={{ height: `${produces.length * 80 + 30}px` }}
             >
-              {eachMonth}
+              <p>{eachMonth}</p>
             </div>
           );
         })}

@@ -18,6 +18,7 @@ export default function ProduceBar(props) {
 
   return (
     <>
+      {/* PRODUCES THAT DO NOT OVERLAP YEAR */}
       <div
         className="produceGridItem"
         style={{
@@ -27,7 +28,7 @@ export default function ProduceBar(props) {
           gridRowEnd: `${props.index + 1}`,
         }}
       >
-        <svg width="100%" height="100%">
+        <svg width="100%" height="60px">
           <line
             x1="0"
             y1="50%"
@@ -47,7 +48,7 @@ export default function ProduceBar(props) {
             <image
               id="imgEl"
               x="50%"
-              transform={`translate (-${imgOffset} 0)`} // This centers the images (pushes them left half their width)
+              transform={`translate (-${imgOffset} 0)`}
               alt={props.produce.name}
               xlinkHref={props.produce.imageUrl}
               ref={imgRef}
@@ -57,8 +58,22 @@ export default function ProduceBar(props) {
               onLoad={() => setImgLoad(true)}
             />
           </g>
-          {yearOverlap ? null : <circle cx="0" cy="50%" r="3px" fill="grey" />}
-          <circle cx="100%" cy="50%" r="3px" fill="grey" />
+          {yearOverlap ? null : (
+            <circle
+              cx="0"
+              cy="50%"
+              r="3px"
+              fill="grey"
+              transform="translate (3 0)"
+            />
+          )}
+          <circle
+            cx="100%"
+            cy="50%"
+            r="3px"
+            fill="grey"
+            transform="translate (-3 0)"
+          />
         </svg>
 
         <Link to={`/produce/${props.produce.id}`}>
@@ -66,6 +81,7 @@ export default function ProduceBar(props) {
         </Link>
       </div>
 
+      {/* PRODUCES THAT OVERLAP YEAR */}
       {yearOverlap ? (
         <div
           className="produceGridItem"
@@ -76,7 +92,7 @@ export default function ProduceBar(props) {
             gridRowEnd: `${props.index + 1}`,
           }}
         >
-          <svg width="100%" height="100%">
+          <svg width="100%" height="60px">
             <line
               x1="0"
               y1="50%"
@@ -87,16 +103,16 @@ export default function ProduceBar(props) {
             />
             <defs>
               {/* We have to give every image it's own clippath */}
-              <clipPath id={`circleView_${props.index}`}>
+              <clipPath id={`circleView_right_${props.index}`}>
                 <circle cx="50%" cy="50%" r="25px" />
               </clipPath>
             </defs>
             {/* We use the clipPath on the group to allow for transforms */}
-            <g clipPath={`url(#circleView_${props.index})`}>
+            <g clipPath={`url(#circleView_right_${props.index})`}>
               <image
                 id="imgEl"
                 x="50%"
-                transform={`translate (-${imgOffset} 0)`} // This centers the images (pushes them left half their width)
+                transform={`translate (-${imgOffset} 0)`}
                 alt={props.produce.name}
                 xlinkHref={props.produce.imageUrl}
                 ref={imgRef}
@@ -107,14 +123,27 @@ export default function ProduceBar(props) {
               />
             </g>
 
-            {/* circle at the start of the line */}
-            <circle cx="0" cy="50%" r="3px" fill="grey" />
+            <circle
+              cx="0"
+              cy="50%"
+              r="3px"
+              fill="grey"
+              transform="translate (3 0)"
+            />
 
             {yearOverlap ? null : (
-              <circle cx="100%" cy="50%" r="3px" fill="grey" />
+              <circle
+                cx="100%"
+                cy="50%"
+                r="3px"
+                fill="grey"
+                transform="translate (-3 0)"
+              />
             )}
           </svg>
-          <Link to={`/produce/${props.produce.id}`}>{props.produce.name}</Link>
+          <Link to={`/produce/${props.produce.id}`}>
+            <p>{props.produce.name}</p>
+          </Link>
         </div>
       ) : null}
     </>
