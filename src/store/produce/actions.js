@@ -85,10 +85,12 @@ export function editProducerProfile(
   website,
   phone,
   profileImg,
-  location
+  location,
+  produceIdArray
 ) {
   return async (dispatch, getState) => {
     const user = selectUser(getState());
+    console.log(user.id);
 
     try {
       const res = await axios.patch(`${apiUrl}/producer/edit/${user.id}`, {
@@ -98,6 +100,7 @@ export function editProducerProfile(
         phone,
         profileImg,
         location,
+        produceIdArray,
       });
 
       dispatch(loadUpdatedProfile(res.data.producerProfile));
