@@ -32,6 +32,27 @@ export default function EditProfile() {
     return eachProduce.value;
   });
 
+  // upload image to cloudinary and set url to profileImg:
+  const uploadImage = async (event) => {
+    const files = event.target.files;
+    const data = new FormData();
+    data.append("file", files[0]);
+    data.append("upload_preset", "bug2pov7");
+
+    const res = await fetch(
+      "https://api.cloudinary.com/v1_1/dbyywopzz/image/upload",
+      {
+        method: "POST",
+        body: data,
+      }
+    );
+
+    const image = await res.json();
+    console.log("cloudinary url: ", image.url);
+
+    setProfileImg(image.url);
+  };
+
   const submitChanges = (event) => {
     event.preventDefault();
     dispatch(
@@ -112,10 +133,8 @@ export default function EditProfile() {
         <label>
           Profile image:
           <input
-            type="text"
-            value={profileImg}
-            placeholder="Your profile image URL"
-            onChange={(input) => setProfileImg(input.target.value)}
+            type="file"
+            onChange={uploadImage}
             style={{ width: "100%" }}
           ></input>
         </label>
