@@ -19,6 +19,7 @@ export default function CountryFilter() {
         <option value={0}>all</option>
         <option value={1}>Netherlands</option>
         <option value={2}>Portugal</option>
+        <option value={3}>Greece</option>
       </select>
     </div>
   );
