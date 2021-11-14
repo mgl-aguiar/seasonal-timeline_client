@@ -7,7 +7,7 @@ import {
   fetchAllProduces,
 } from "../store/produce/actions";
 import Select from "react-select";
-import "./EditProfile.css";
+import "../style/EditProfile.css";
 
 export default function EditProfile() {
   const user = useSelector(selectUser);

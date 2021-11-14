@@ -4,15 +4,12 @@ import { useRef, useEffect, useState } from "react";
 export default function ProduceBar(props) {
   const yearOverlap = props.produce.seasonStart > props.produce.seasonEnd;
 
-  // This is a nice hook we can use to get 'raw' svg/html object to use stuff like .getBBox on them!
   const imgRef = useRef();
-  // Here we store the offset
   const [imgOffset, setImgOffset] = useState(0);
-  const [imgLoad, setImgLoad] = useState(false); // I need to respond to the loading of the image so I keep track in it here
+  const [imgLoad, setImgLoad] = useState(false);
   useEffect(() => {
-    //getBBox returns the bounding box of this image, use it to get (half) the width
     if (!imgRef) return;
-    const bbox = imgRef.current.getBBox();
+    const bbox = imgRef.current.getBBox(); // sometimes imgRef.current is returning null
     setImgOffset(bbox.width / 2);
   }, [imgRef, imgLoad]);
 
@@ -38,12 +35,10 @@ export default function ProduceBar(props) {
             strokeWidth="0.5"
           />
           <defs>
-            {/* We have to give every image it's own clippath */}
             <clipPath id={`circleView_${props.index}`}>
               <circle cx="50%" cy="50%" r="25px" />
             </clipPath>
           </defs>
-          {/* We use the clipPath on the group to allow for transforms */}
           <g clipPath={`url(#circleView_${props.index})`}>
             <image
               id="imgEl"
@@ -102,12 +97,10 @@ export default function ProduceBar(props) {
               strokeWidth="0.5"
             />
             <defs>
-              {/* We have to give every image it's own clippath */}
               <clipPath id={`circleView_right_${props.index}`}>
                 <circle cx="50%" cy="50%" r="25px" />
               </clipPath>
             </defs>
-            {/* We use the clipPath on the group to allow for transforms */}
             <g clipPath={`url(#circleView_right_${props.index})`}>
               <image
                 id="imgEl"

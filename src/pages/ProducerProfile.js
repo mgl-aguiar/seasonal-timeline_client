@@ -7,7 +7,7 @@ import { fetchProducerProfile } from "../store/produce/actions";
 import { selectUser } from "../store/user/selectors";
 import { Link } from "react-router-dom";
 
-import "./ProducerProfile.css";
+import "../style/ProducerProfile.css";
 
 import Loading from "../components/Loading";
 

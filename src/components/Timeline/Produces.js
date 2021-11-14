@@ -10,7 +10,7 @@ import {
 } from "../../store/produce/actions";
 import ProduceBar from "./ProduceBar";
 
-import "./timeline.css";
+import "../../style/timeline.css";
 
 export default function ProduceCard() {
   const dispatch = useDispatch();

@@ -15,11 +15,6 @@ import EditProfile from "./pages/EditProfile";
 import { useDispatch, useSelector } from "react-redux";
 import { selectAppLoading } from "./store/appState/selectors";
 import { getUserWithStoredToken } from "./store/user/actions";
-import { Jumbotron } from "react-bootstrap";
-
-<Jumbotron>
-  <h1>Home</h1>
-</Jumbotron>;
 
 function App() {
   const dispatch = useDispatch();

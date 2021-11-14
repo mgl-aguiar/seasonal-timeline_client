@@ -9,7 +9,7 @@ import {
 } from "../store/produce/selectors";
 import Loading from "../components/Loading";
 
-import "./ProduceDetails.css";
+import "../style/ProduceDetails.css";
 
 export default function ProduceDetails() {
   const dispatch = useDispatch();

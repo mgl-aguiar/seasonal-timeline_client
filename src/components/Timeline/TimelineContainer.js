@@ -1,13 +1,8 @@
 import React from "react";
-import { useSelector } from "react-redux";
 import Produces from "./Produces";
-import "./timeline.css";
-
-import { selectAllProduces } from "../../store/produce/selectors";
+import "../../style/timeline.css";
 
 export default function TimelineContainer() {
-  const produces = useSelector(selectAllProduces);
-
   const months = [
     "January",
     "February",
