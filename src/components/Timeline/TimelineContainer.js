@@ -29,11 +29,7 @@ export default function TimelineContainer() {
       <div className="monthGrid">
         {months.map((eachMonth, index) => {
           return (
-            <div
-              key={index}
-              className="monthGridItem"
-              style={{ height: `${produces.length * 80 + 30}px` }}
-            >
+            <div key={index} className="monthGridItem">
               <p>{eachMonth}</p>
             </div>
           );
