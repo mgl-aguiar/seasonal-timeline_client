@@ -53,8 +53,9 @@ export default function EditProfile() {
 
   return (
     <div>
-      <h1>Edit your producer profile</h1>
       <form onSubmit={submitChanges} className="form">
+        <h1>Edit your producer profile</h1>
+
         <label>
           Name:
           <input
@@ -62,12 +63,14 @@ export default function EditProfile() {
             value={name}
             placeholder="Your name or the name of your business"
             onChange={(input) => setName(input.target.value)}
+            style={{ width: "100%" }}
           />
         </label>
         <label>
           Description:
-          <input
+          <textarea
             type="text"
+            rows="3"
             value={description}
             placeholder="Describe your production"
             onChange={(input) => setDescription(input.target.value)}
@@ -81,7 +84,7 @@ export default function EditProfile() {
             value={website}
             placeholder="Your website URL"
             onChange={(input) => setWebsite(input.target.value)}
-            style={{ marginLeft: "20px" }}
+            style={{ width: "100%" }}
           />
         </label>
         <label>
@@ -91,7 +94,7 @@ export default function EditProfile() {
             value={phone}
             placeholder="Your contact number"
             onChange={(input) => setPhone(input.target.value)}
-            style={{ marginLeft: "20px" }}
+            style={{ width: "100%" }}
           ></input>
         </label>
 
@@ -102,34 +105,40 @@ export default function EditProfile() {
             value={location}
             placeholder="Where do you sell your products?"
             onChange={(input) => setLocation(input.target.value)}
-            style={{ marginLeft: "20px" }}
+            style={{ width: "100%" }}
           ></input>
         </label>
 
         <label>
-          Profile Image:
+          Profile image:
           <input
             type="text"
             value={profileImg}
             placeholder="Your profile image URL"
             onChange={(input) => setProfileImg(input.target.value)}
-            style={{ marginLeft: "20px" }}
+            style={{ width: "100%" }}
           ></input>
         </label>
 
-        <Select
-          isMulti
-          name="colors"
-          onChange={(selectedProduces) => setSelectedProduces(selectedProduces)}
-          options={producesToSelect}
-          className="basic-multi-select"
-          classNamePrefix="select"
-        />
+        <label>
+          Select your produces:
+          <Select
+            isMulti
+            name="colors"
+            onChange={(selectedProduces) =>
+              setSelectedProduces(selectedProduces)
+            }
+            options={producesToSelect}
+            className="basic-multi-select"
+            classNamePrefix="select"
+          />
+        </label>
 
         <input
           type="submit"
           value="Save changes"
           className="submitButton"
+          style={{ width: "25%", textAlign: "center" }}
         ></input>
       </form>{" "}
     </div>
