@@ -39,20 +39,22 @@ export default function ProduceBar(props) {
               <circle cx="50%" cy="50%" r="25px" />
             </clipPath>
           </defs>
-          <g clipPath={`url(#circleView_${props.index})`}>
-            <image
-              id="imgEl"
-              x="50%"
-              transform={`translate (-${imgOffset} 0)`}
-              alt={props.produce.name}
-              xlinkHref={props.produce.imageUrl}
-              ref={imgRef}
-              style={{
-                height: "100%",
-              }}
-              onLoad={() => setImgLoad(true)}
-            />
-          </g>
+          <Link to={`/produce/${props.produce.id}`}>
+            <g clipPath={`url(#circleView_${props.index})`}>
+              <image
+                id="imgEl"
+                x="50%"
+                transform={`translate (-${imgOffset} 0)`}
+                alt={props.produce.name}
+                xlinkHref={props.produce.imageUrl}
+                ref={imgRef}
+                style={{
+                  height: "100%",
+                }}
+                onLoad={() => setImgLoad(true)}
+              />
+            </g>
+          </Link>
           {yearOverlap ? null : (
             <circle
               cx="0"
