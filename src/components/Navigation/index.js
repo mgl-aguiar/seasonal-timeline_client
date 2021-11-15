@@ -15,7 +15,7 @@ export default function Navigation() {
   return (
     <Navbar bg="light" expand="lg">
       <Navbar.Brand as={NavLink} to="/">
-        Seasonal Timeline
+        Seasonal Timeline 🌱
       </Navbar.Brand>
       <Nav>
         <CountryFilter />
