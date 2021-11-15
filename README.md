@@ -1,42 +1,84 @@
-# Frontend template
+# 🌱 Seasonal Timeline 🌱
 
-This is a simple react/redux/jwt template to start a project quickly
+**Seasonal timeline** is a web application designed to inform the users about the fruits and vegetables they eat and help promote sustainable, healthy habits; as well as connecting local producers to potential customers.
 
-## Table of contents:
+<br>
 
-- **[Setup](#setup-how-to-use-this-template)**
-- **[Create React App docs](#cra-docs)**
+## Goals
 
-## SETUP How to use this template
+---
 
-1. Create a new project based on this template using the `Use this template` button
+The goal of this project was to experience developing a full-stack app — from conception and planning to deployment — while practicing all I learned at Codaisseur's Full Stack JavaScript Academy and also discovering new tools and technologies.
 
-![HOW_TO_USE](https://user-images.githubusercontent.com/20372832/77003323-70966180-695d-11ea-8abe-b362d57135f3.gif)
+<br>
 
-2. Clone the app
+## Technologies used
 
-```
-git clone git@github.com:YOUR_GITHUB_NAME/YOUR_PROJECT_NAME.git
-```
+---
 
-3. cd into your project
+### Frontend:
 
-```
-cd YOUR_PROJECT_NAME
-```
+- React
+- Redux
+- Axios
+- SVG
 
-4. install dependencies
+### Backend
 
-```
-npm install
-```
+- Express
+- Sequelize
+- Postgres
 
-5. Start development server with npm start
+<br>
 
-```
-npm start
-```
+<!-- ## Usability
 
-## CRA docs
+---
 
-The normal Create React App docs can be found in [CRA_DOCS.md](./CRA_DOCS.md)
+  <br>
+  <br> -->
+
+## User Stories
+
+---
+
+### As a regular user, I want to:
+
+  <br>
+
+- be able to see what fruits and vegetables are in season in my region or other places.
+
+- be able to have an overview of which produces are in season around the year.
+
+- be able to see more information about each produce and find local producers.
+
+### As a producer, I want to:
+
+  <br>
+
+- be able to login and set up my business page so I can reach potential customers.
+- be able to update my page and change the fruits and vegetables I offer.
+
+  <br>
+
+## Next Features
+
+---
+
+- Set up a map so the user can see where the local producers are located.
+- List recipes in the details page of each fruits and vegetables.
+- Create login option for consumers, so they can set up their likes and dislikes and favorite recipes.
+
+  <br>
+
+## Links
+
+---
+
+[Wireframe](https://wireframepro.mockflow.com/view/Mo5415YVTmb)
+
+[Database Model](https://dbdiagram.io/d/617b100cfa17df5ea6740d8f)
+
+[Kanban board](https://github.com/users/mferraris/projects/1)
+
+[Back-end repository](https://github.com/mferraris/seasonal-timeline_server)
