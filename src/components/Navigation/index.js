@@ -14,15 +14,18 @@ export default function Navigation() {
 
   return (
     <Navbar bg="light" expand="lg">
-      <Navbar.Brand as={NavLink} to="/">
+      <Navbar.Brand as={NavLink} to="/" style={{ marginLeft: "2vw" }}>
         Seasonal Timeline 🌱
       </Navbar.Brand>
-      <Nav>
+      <Nav style={{ marginLeft: "20vw" }}>
         <CountryFilter />
       </Nav>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
-      <Navbar.Collapse id="basic-navbar-nav">
-        <Nav style={{ width: "100%" }} fill>
+      <Navbar.Collapse
+        id="basic-navbar-nav"
+        style={{ justifyContent: "flex-end" }}
+      >
+        <Nav style={{ textAlign: "right", marginRight: "2vw" }} fill>
           {loginLogoutControls}
         </Nav>
       </Navbar.Collapse>

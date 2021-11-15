@@ -57,6 +57,7 @@ export default function SignUp() {
 
     setProfileImg(image.url);
   };
+  console.log("profile: ", profileImg);
 
   useEffect(() => {
     dispatch(fetchAllProduces());

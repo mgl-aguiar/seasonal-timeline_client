@@ -1,4 +1,4 @@
-# 🌱 Seasonal Timeline 🌱
+# Seasonal Timeline 🌱
 
 **Seasonal timeline** is a web application designed to inform the users about the fruits and vegetables they eat and help promote sustainable, healthy habits; as well as connecting local producers to potential customers.
 
@@ -6,15 +6,11 @@
 
 ## Goals
 
----
-
 The goal of this project was to experience developing a full-stack app — from conception and planning to deployment — while practicing all I learned at Codaisseur's Full Stack JavaScript Academy and also discovering new tools and technologies.
 
 <br>
 
 ## Technologies used
-
----
 
 ### Frontend:
 
@@ -40,8 +36,6 @@ The goal of this project was to experience developing a full-stack app — from 
 
 ## User Stories
 
----
-
 ### As a regular user, I want to:
 
   <br>
@@ -63,8 +57,6 @@ The goal of this project was to experience developing a full-stack app — from 
 
 ## Next Features
 
----
-
 - Set up a map so the user can see where the local producers are located.
 - List recipes in the details page of each fruits and vegetables.
 - Create login option for consumers, so they can set up their likes and dislikes and favorite recipes.
@@ -72,8 +64,6 @@ The goal of this project was to experience developing a full-stack app — from 
   <br>
 
 ## Links
-
----
 
 [Wireframe](https://wireframepro.mockflow.com/view/Mo5415YVTmb)
 
