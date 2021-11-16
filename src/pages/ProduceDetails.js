@@ -8,6 +8,7 @@ import {
   selectFilterState,
 } from "../store/produce/selectors";
 import Loading from "../components/Loading";
+import { Link } from "react-router-dom";
 
 import "../style/ProduceDetails.css";
 
@@ -26,7 +27,7 @@ export default function ProduceDetails() {
 
   useEffect(() => {
     dispatch(fetchProduceDetails(produceId));
-  }, []);
+  }, [produceId]);
 
   return (
     <div className="gridContainer">
@@ -51,9 +52,9 @@ export default function ProduceDetails() {
               localProducers.map((eachProducer) => {
                 return (
                   <li key={eachProducer.id}>
-                    <a href={`/producer/${eachProducer.id}`}>
+                    <Link to={`/producer/${eachProducer.id}`}>
                       {eachProducer.name}
-                    </a>
+                    </Link>
                   </li>
                 );
               })

@@ -8,6 +8,7 @@ import "../../style/Dropdown.css";
 export default function ProduceFinder() {
   const history = useHistory();
   const allProduces = useSelector(selectAllProduces);
+  console.log("produces finder: ", allProduces);
 
   return (
     <div className="dropdown">
