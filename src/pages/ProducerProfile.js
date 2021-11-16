@@ -55,7 +55,9 @@ export default function ProducerProfile() {
             {produces.map((eachProduce) => {
               return (
                 <li>
-                  <a href={`/produce/${eachProduce.id}`}>{eachProduce.name}</a>
+                  <Link to={`/produce/${eachProduce.id}`}>
+                    {eachProduce.name}
+                  </Link>
                 </li>
               );
             })}
