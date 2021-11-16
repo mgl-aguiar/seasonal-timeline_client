@@ -2,13 +2,13 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { updateFilter } from "../../store/produce/actions";
 
-import "../../style/CountryFilter.css";
+import "../../style/Dropdown.css";
 
 export default function CountryFilter() {
   const dispatch = useDispatch();
 
   return (
-    <div className="countryFilter">
+    <div className="dropdown">
       {" "}
       <label for="countries" style={{ marginRight: "10px" }}>
         Select your country:

@@ -4,6 +4,7 @@ import { logOut } from "../../store/user/actions";
 import Button from "react-bootstrap/Button";
 import { selectUser } from "../../store/user/selectors";
 import NavbarItem from "./NavbarItem";
+import { Link } from "react-router-dom";
 
 export default function LoggedIn() {
   const dispatch = useDispatch();
@@ -14,7 +15,11 @@ export default function LoggedIn() {
         path={`/producer/${user.id}`}
         linkText="My Producer Profile"
       />
-      <Button onClick={() => dispatch(logOut())}>Logout</Button>
+      <Button onClick={() => dispatch(logOut())}>
+        <Link to={"/"} style={{ color: "white", textDecoration: "none" }}>
+          Logout
+        </Link>
+      </Button>
     </>
   );
 }

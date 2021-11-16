@@ -7,6 +7,7 @@ import { selectToken } from "../../store/user/selectors";
 import LoggedIn from "./LoggedIn";
 import LoggedOut from "./LoggedOut";
 import CountryFilter from "../CountryFilter";
+import ProduceFinder from "../ProduceFinder";
 export default function Navigation() {
   const token = useSelector(selectToken);
 
@@ -19,6 +20,7 @@ export default function Navigation() {
       </Navbar.Brand>
       <Nav style={{ marginLeft: "20vw" }}>
         <CountryFilter />
+        <ProduceFinder />
       </Nav>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse
