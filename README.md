@@ -1,6 +1,6 @@
-# Seasonal Timeline 🌱
+# Seasonally 🌱
 
-**Seasonal timeline** is a web application designed to inform the users about the fruits and vegetables they eat and help promote sustainable, healthy habits; as well as connecting local producers to potential customers.
+**Seasonally** is a web application designed to inform the users about the fruits and vegetables they eat and promote the idea of a seasonal, sustainable diet and  healthier habits; as well as connecting local producers to potential customers.
 
 <br>
 
