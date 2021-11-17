@@ -33,6 +33,11 @@ Timeline:
 
 <img src="https://media.giphy.com/media/3Pf5NcVpstg152nwiv/giphy.gif" width="500px"/>
 
+Produce details and producer profile:
+
+<img src="https://media.giphy.com/media/yas65MfUJsgLithOqo/giphy.gif" width="500px"/>
+
+
 ## User Stories
 
 ### As a regular user, I want to:
