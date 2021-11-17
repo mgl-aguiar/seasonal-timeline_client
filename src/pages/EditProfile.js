@@ -48,7 +48,6 @@ export default function EditProfile() {
     );
 
     const image = await res.json();
-    console.log("cloudinary url: ", image.url);
 
     setProfileImg(image.url);
   };
@@ -132,6 +131,15 @@ export default function EditProfile() {
 
         <label>
           Profile image:
+          {!profileImg ? null : (
+            <div>
+              <img
+                src={`${profileImg}`}
+                alt={name}
+                style={{ width: "150px", margin: "10px 0" }}
+              ></img>
+            </div>
+          )}
           <input
             type="file"
             onChange={uploadImage}
