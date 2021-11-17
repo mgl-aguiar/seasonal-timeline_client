@@ -7,6 +7,7 @@ export default function ProduceBar(props) {
   const imgRef = useRef();
   const [imgOffset, setImgOffset] = useState(0);
   const [imgLoad, setImgLoad] = useState(false);
+
   useEffect(() => {
     if (!imgRef) return;
     const bbox = imgRef.current.getBBox(); // sometimes imgRef.current is returning null
@@ -103,20 +104,22 @@ export default function ProduceBar(props) {
                 <circle cx="50%" cy="50%" r="25px" />
               </clipPath>
             </defs>
-            <g clipPath={`url(#circleView_right_${props.index})`}>
-              <image
-                id="imgEl"
-                x="50%"
-                transform={`translate (-${imgOffset} 0)`}
-                alt={props.produce.name}
-                xlinkHref={props.produce.imageUrl}
-                ref={imgRef}
-                style={{
-                  height: "100%",
-                }}
-                onLoad={() => setImgLoad(true)}
-              />
-            </g>
+            <Link to={`/produce/${props.produce.id}`}>
+              <g clipPath={`url(#circleView_right_${props.index})`}>
+                <image
+                  id="imgEl"
+                  x="50%"
+                  transform={`translate (-${imgOffset} 0)`}
+                  alt={props.produce.name}
+                  xlinkHref={props.produce.imageUrl}
+                  ref={imgRef}
+                  style={{
+                    height: "100%",
+                  }}
+                  onLoad={() => setImgLoad(true)}
+                />
+              </g>
+            </Link>
 
             <circle
               cx="0"
