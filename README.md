@@ -1,6 +1,6 @@
-# Seasonal Timeline 🌱
+# Seasonally 🌱
 
-**Seasonal timeline** is a web application designed to inform the users about the fruits and vegetables they eat and help promote sustainable, healthy habits; as well as connecting local producers to potential customers.
+**Seasonally** is a web application designed to inform the users about the fruits and vegetables they eat and promote the idea of a seasonal, sustainable diet and  healthier habits; as well as connecting local producers to potential customers.
 
 <br>
 
@@ -38,8 +38,6 @@ The goal of this project was to experience developing a full-stack app — from 
 
 ### As a regular user, I want to:
 
-  <br>
-
 - be able to see what fruits and vegetables are in season in my region or other places.
 
 - be able to have an overview of which produces are in season around the year.
@@ -47,8 +45,6 @@ The goal of this project was to experience developing a full-stack app — from 
 - be able to see more information about each produce and find local producers.
 
 ### As a producer, I want to:
-
-  <br>
 
 - be able to login and set up my business page so I can reach potential customers.
 - be able to update my page and change the fruits and vegetables I offer.
