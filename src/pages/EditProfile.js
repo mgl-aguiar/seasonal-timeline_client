@@ -140,11 +140,7 @@ export default function EditProfile() {
               ></img>
             </div>
           )}
-          <input
-            type="file"
-            onChange={uploadImage}
-            style={{ width: "100%" }}
-          ></input>
+          <input type="file" id="browseFiles" onChange={uploadImage}></input>
         </label>
 
         <label>
@@ -164,8 +160,7 @@ export default function EditProfile() {
         <input
           type="submit"
           value="Save changes"
-          className="submitButton"
-          style={{ width: "25%", textAlign: "center" }}
+          className="saveChangesButton"
         ></input>
       </form>{" "}
     </div>
