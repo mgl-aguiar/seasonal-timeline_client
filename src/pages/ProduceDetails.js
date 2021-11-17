@@ -30,50 +30,59 @@ export default function ProduceDetails() {
   }, [produceId]);
 
   return (
-    <div className="gridContainer">
-      <img
-        src={`${produce.imageUrl}`}
-        alt={`${produce.name}`}
-        className="gridImage"
-      ></img>
-      <div className="gridHeader">
-        <h1>{produce.name}</h1>
-        <p>{produce.seasonality}</p>
-      </div>
-      <div className="gridSide">
-        <h3>Local producers:</h3>
+    <>
+      {!produce ? (
+        <Loading />
+      ) : (
+        <div className="gridContainer">
+          <img
+            src={`${produce.imageUrl}`}
+            alt={`${produce.name}`}
+            className="produceImage"
+          ></img>
+          <div className="gridHeader">
+            <h1>{produce.name}</h1>
+            <p>{produce.seasonality}</p>
+          </div>
+          <div className="gridSide">
+            <h3>Local producers:</h3>
 
-        {!localProducers ? (
-          <Loading />
-        ) : (
-          <ul>
-            {" "}
-            {localProducers.length !== 0 ? (
-              localProducers.map((eachProducer) => {
-                return (
-                  <li key={eachProducer.id}>
-                    <Link to={`/producer/${eachProducer.id}`}>
-                      {eachProducer.name}
-                    </Link>
-                  </li>
-                );
-              })
-            ) : countryId === 0 ? (
-              <p>Select a country to find local producers</p>
+            {!localProducers ? (
+              <Loading />
             ) : (
-              <p>No local producers yet</p>
+              <ul className="list">
+                {" "}
+                {localProducers.length !== 0 ? (
+                  localProducers.map((eachProducer) => {
+                    return (
+                      <li key={eachProducer.id}>
+                        <Link
+                          to={`/producer/${eachProducer.id}`}
+                          className="listItem"
+                        >
+                          {eachProducer.name}
+                        </Link>
+                      </li>
+                    );
+                  })
+                ) : countryId === 0 ? (
+                  <p>Select a country to find local producers</p>
+                ) : (
+                  <p>No local producers yet</p>
+                )}
+              </ul>
             )}
-          </ul>
-        )}
-      </div>
-      <div className="gridMain">
-        <h3>History:</h3>
-        <p>{produce.history}</p>
-        <h3>Geography:</h3>
-        <p>{produce.geography}</p>
-        <h3>Nutrition:</h3>
-        <p>{produce.nutrition}</p>
-      </div>
-    </div>
+          </div>
+          <div className="gridMain">
+            <h3>History:</h3>
+            <p>{produce.history}</p>
+            <h3>Geography:</h3>
+            <p>{produce.geography}</p>
+            <h3>Nutrition:</h3>
+            <p>{produce.nutrition}</p>
+          </div>
+        </div>
+      )}
+    </>
   );
 }

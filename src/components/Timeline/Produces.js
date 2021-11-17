@@ -10,6 +10,8 @@ import {
 } from "../../store/produce/actions";
 import ProduceBar from "./ProduceBar";
 
+import Loading from "../Loading";
+
 import "../../style/timeline.css";
 
 export default function ProduceCard() {
@@ -26,18 +28,22 @@ export default function ProduceCard() {
   }, [countryId]);
 
   return (
-    <div>
-      <div className="produceGrid">
-        {produces.map((eachProduce, index) => {
-          return (
-            <ProduceBar
-              produce={eachProduce}
-              key={index}
-              index={index}
-            ></ProduceBar>
-          );
-        })}
-      </div>
-    </div>
+    <>
+      {!produces ? (
+        <Loading />
+      ) : (
+        <div className="produceGrid">
+          {produces.map((eachProduce, index) => {
+            return (
+              <ProduceBar
+                produce={eachProduce}
+                key={index}
+                index={index}
+              ></ProduceBar>
+            );
+          })}
+        </div>
+      )}
+    </>
   );
 }

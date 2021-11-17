@@ -6,6 +6,7 @@
   display: grid;
   border-radius: 10px;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  overflow-x: scroll;
   grid-template-columns: 1fr 3fr;
   grid-template-rows: auto;
   row-gap: 10px;
@@ -14,39 +15,36 @@
     "image header header header"
     "side main main main";
 }
+
 /* ---------------------------- */
-.produceImage {
+.userImage {
   grid-area: image;
   width: 100%;
-  border-radius: 50%;
-  box-shadow: rgba(141, 141, 190, 0.5) 0px 7px 29px 0px;
 }
 
-/* ---------------------------- */
 .gridHeader {
   grid-area: header;
-  padding-top: 3.5rem;
-}
-.gridHeader > p {
-  font-size: 1rem;
+  font-size: 60px;
 }
 
-/* ---------------------------- */
 .gridSide {
   grid-area: side;
-  margin-top: 1rem;
 }
-
-.gridSide > h3 {
-  font-size: 1.5rem;
+.gridMain {
+  grid-area: main;
 }
 
 /* ---------------------------- */
-.gridMain {
-  grid-area: main;
-  overflow-x: scroll;
-  margin-top: 1rem;
-  padding: 0 3rem 3rem 0;
+.button {
+  background-color: rgb(157, 202, 161);
+  border-radius: 0;
+  border: none;
+  color: white;
+  padding: 0.3rem;
+}
+
+.button:hover {
+  background-color: rgb(114, 146, 117);
 }
 
 /* ---------------------------- */
@@ -57,7 +55,7 @@
 
 .listItem {
   color: grey;
-  /* text-decoration: none; */
+  text-decoration: none;
 }
 
 .listItem:hover {
