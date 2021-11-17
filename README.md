@@ -27,12 +27,11 @@ The goal of this project was to experience developing a full-stack app — from 
 
 <br>
 
-<!-- ## Usability
+## Usability
 
----
+### Seasonality timeline:
 
-  <br>
-  <br> -->
+https://giphy.com/gifs/3Pf5NcVpstg152nwiv
 
 ## User Stories
 
